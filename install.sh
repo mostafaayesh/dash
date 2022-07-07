@@ -216,7 +216,7 @@ else
   fi
 
   #beginning make
-  make -j2
+  make -j$(nproc)
 
   if [[ $? -eq 0 ]]; then
     echo -e Aasdk Make completed successfully '\n'
@@ -287,7 +287,7 @@ else
   fi
 
   #beginning make
-  make
+  make -j$(nproc)
 
   if [[ $? -eq 0 ]]; then
     echo -e h264bitstream Make completed successfully '\n'
@@ -372,7 +372,7 @@ if [ $gstreamer = true ]; then
   fi
 
   echo Making Gstreamer
-  make -j4
+  make -j$(nproc)
 
   if [[ $? -eq 0 ]]; then
     echo -e Gstreamer make ok'\n'
@@ -448,7 +448,7 @@ else
   fi
 
   echo Beginning openauto make
-  make
+  make -j$(nproc)
   if [[ $? -eq 0 ]]; then
     echo -e Openauto make OK'\n'
   else
@@ -497,7 +497,7 @@ else
   fi
 
   echo Running Dash make
-  make
+  make -j$(nproc)
   if [[ $? -eq 0 ]]; then
       echo -e Dash make ok, executable can be found ../bin/dash
       echo
